@@ -1,0 +1,304 @@
+/* -------------------------------
+   Global font and body settings
+---------------------------------*/
+body {
+    font-family: Georgia, serif;  /* body text */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #111;                  /* dark text */
+    background-color: #fff;       /* light background */
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------
+   Home 
+---------------------------------*/
+.home-content {
+    max-width: 600px;
+    margin: 60px;
+}
+@media (max-width: 768px) {
+    .home-content {
+        margin: 24px 16px;
+    }
+}
+/* =====================================================
+   Title
+===================================================== */
+#page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+/* -------------------------------
+   Headings
+---------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;             /* normal weight for elegance */
+    margin: 0.5em 0;
+}
+
+/* -------------------------------
+   Dash Tabs
+---------------------------------*/
+.tab {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+/* -------------------------------
+   Buttons
+---------------------------------*/
+button, .dash-button {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 19px;
+}
+
+
+.nav-button {
+    background: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 0px;
+    cursor: pointer;
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #222;
+
+    border-radius: 6px;
+
+    /* Drop shadow for button identity */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+/* Hover: underline + raise button slightly */
+.nav-button:hover {
+    color: #0077ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+/* Underline animation */
+.nav-button::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 5px;  /* inside the button */
+    height: 2px;
+    background-color: #0077ff;
+    width: 0%;
+    transition: width 0.25s ease;
+}
+
+.nav-button:hover::after {
+    width: calc(100% - 32px);
+}
+
+/* --------------------------
+   ACTIVE TAB (distinct color)
+---------------------------*/
+.nav-button.active {
+    background-color: #0077ff;    /* fill */
+    color: white;                 /* white text */
+    box-shadow: 0 3px 12px rgba(0,0,0,0.22);
+    transform: translateY(-1px);
+}
+
+/* Underline off for active — not needed */
+.nav-button.active::after {
+    width: 0;
+}
+
+/* ----------------------------------
+   BASE BOX STYLE (shared everywhere)
+----------------------------------- */
+.box {
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    line-height: 1.6;
+}
+
+.selector-box {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .selector-box {
+        max-width: 100%;
+    }
+}
+/* ----------------------------------
+   PLOT BOX
+----------------------------------- */
+.plot-box {
+    padding: 10px 10px 10px 10px;
+}
+
+/* ----------------------------------
+   TEXT BOX
+----------------------------------- */
+.text-box h3 {
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.box.highlight {
+    background: #f0f7ff;
+    border-left: 5px solid #1f77b4;
+}
+
+/* ----------------------------------
+   FIGURE + TEXT LAYOUT
+----------------------------------- */
+.figure-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.figure-row .plot-box {
+    flex: 2;
+    min-width: 0;   /* 🔑 REQUIRED for flexbox + plotly */
+}
+.figure-row .text-box {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .figure-row {
+        flex-direction: column;
+    }
+
+    .figure-row .plot-box,
+    .figure-row .text-box {
+        width: 94%;
+    }
+}
+/* ----------------------------------
+   GAS INTRO (TOP BOX)
+----------------------------------- */
+.gas-intro {
+    max-width: 1200px;
+    margin: 40px auto 30px auto;
+}
+
+.gas-intro h2 {
+    margin-top: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+/* Gas page nav buttons: lower position & centered */
+.gas-nav {
+    display: flex;
+    justify-content: center;  /* centers buttons horizontally */
+    margin-top: 40px;         /* pushes buttons downward */
+    margin-bottom: 40px;      /* spacing below buttons */
+}
+
+.gas-nav #nav-buttons {
+    display: flex;
+    flex-wrap: wrap;        /* ✅ allows wrapping */
+    gap: 12px 14px;                 /* spacing between buttons */
+    align-items: center;
+}
+
+/* =====================================================
+   HERO LAYOUT
+===================================================== */
+.hero {
+    min-height: 100vh;
+    padding-top: 180px;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+.hero-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* left-align everything */
+    gap: 20px;                /* spacing between title, nav buttons, subtitle */
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0;                /* remove extra margin */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+}
+
+.hero-header #nav-buttons {
+    display: flex;
+    flex-wrap: wrap;        /* ✅ allows wrapping */
+    gap: 12px 14px;         /* row gap / column gap */
+    margin: 0;                /* reasonable spacing between buttons */
+    justify-content: flex-start;
+}
+
+/* Optional: subtitle spacing */
+.hero-subtitle {
+    font-size: 22px;
+    color: #555;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/* -----------------------------------
+   Plot container
+----------------------------------- */
+#gas-figure {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    padding: 12px;
+}
+
+/* -------------------------------
+   Flexible Buttons
+---------------------------------*/
+@media (max-width: 768px) {
+    .nav-button {
+        padding: 10px 18px;
+        font-size: 16px;
+    }
+
+    #nav-buttons {
+        justify-content: center;   /* center rows on mobile */
+    }
+}
+/* -------------------------------
+   Plotly Graph fonts
+---------------------------------*/
+.js-plotly-plot .gtitle, 
+.js-plotly-plot .axistext {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* .js-plotly-plot,
+.plot-container {
+    width: 100% !important;
+} */

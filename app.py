@@ -24,4 +24,5 @@ register_navigation(app, atmosConc, lifeTimes, prod, trace_library)
 register_gas_plot(app, atmosConc, lifeTimes, prod, trace_library)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host="0.0.0.0", port=7860, debug=False)
